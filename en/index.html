@@ -75,6 +75,8 @@
         <p>8</p>
     </div>
     <script>
+        if (history.scrollRestoration) {history.scrollRestoration = 'manual';}
+	    window.scrollTo(0, 0);
         const contentBoxes = document.querySelectorAll('.content-box');
         const dotCount = 45; 
         const lineCount = 38;
