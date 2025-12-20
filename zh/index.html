@@ -30,7 +30,9 @@
         .nav-item.now {color:#7ef7ee;}
         .lang-switch {background-color: #00a89d;color: white;border: none;padding: 8px 16px;font-size: 16px;border-radius: 4px;cursor: pointer;transition: background-color 0.3s;text-decoration: none;}
         .lang-switch:hover {background-color: #34495e;}
-        .content {padding: 20px;}
+        
+        .content-box {max-width: 1200px;margin: 40px auto;padding: 30px;background-color: rgba(255, 255, 255, 0.7);border-radius: 8px;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);transform: translateY(100px);opacity: 0;transition: transform 0.2s ease-out, opacity 0.2s ease-out;}
+        .content-box.visible {transform: translateY(0);opacity: 1;}
     </style>
 </head>
 <body>
@@ -47,14 +49,35 @@
         </div>
         <a href="../en/index.html" class="lang-switch">英文</a>
     </div>
-    <div class="content">
-        <p>内容等待被填充..</p>
+    <p>网站测试中......>wa>
+    <div class="content-box">
+        <p>1</p>
     </div>
-
+    <div class="content-box">
+        <p>2</p>
+    </div>
+    <div class="content-box">
+        <p>3</p>
+    </div>
+    <div class="content-box">
+        <p>4</p>
+    </div>
+    <div class="content-box">
+        <p>5</p>
+    </div>
+    <div class="content-box">
+        <p>6</p>
+    </div>
+    <div class="content-box">
+        <p>7</p>
+    </div>
+    <div class="content-box">
+        <p>8</p>
+    </div>
     <script>
-        const bgContainer = document.getElementById('bgContainer');
-        const dotCount = 15; 
-        const lineCount = 8;
+        const contentBoxes = document.querySelectorAll('.content-box');
+        const dotCount = 45; 
+        const lineCount = 38;
         for (let i = 0; i < dotCount; i++) {
             const dot = document.createElement('div');
             dot.className = 'bg-dot';
@@ -77,6 +100,11 @@
             line.style.animationDelay = `${Math.random() * 8}s`;
             bgContainer.appendChild(line);
         }
+        const contentBox = document.getElementById('contentBox');
+        function isInViewport(element) {const rect = element.getBoundingClientRect();return (rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&rect.bottom >= 0);}
+        function handleScroll() {contentBoxes.forEach(box => {if (isInViewport(box) && !box.classList.contains('visible')) {box.classList.add('visible');}});}
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
     </script>
 </body>
 </html>
