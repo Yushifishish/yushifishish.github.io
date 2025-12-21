@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YfshGames - Creative Games & Thinking =^▽^=</title>
+    <style>
+        body {margin: 0;background-color: #bafff0;min-height: 100vh;overflow-x: hidden;position: relative;}
+        .bg-container {position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;pointer-events: none;}
+        .bg-dot {position: absolute;width: 12px;height: 12px;background-color: rgba(0, 197, 183, 0.15);border-radius: 50%;animation: floatDot 8s ease-in-out infinite;}
+        .bg-line {position: absolute;height: 10px;width: 80px;background-color: rgba(0, 197, 183, 0.2);border-radius: 5px;transform: rotate(-45deg);transform-origin: center center;animation: floatLine 12s ease-in-out infinite;}
+        @keyframes floatDot {
+            0% {transform: translate3d(0, 0, 0);}
+            25% {transform: translate3d(20px, 15px, 0);}
+            50% {transform: translate3d(0, 30px, 0);}
+            75% {transform: translate3d(-20px, 15px, 0);}
+            100% {transform: translate3d(0, 0, 0);}
+        }
+        @keyframes floatLine {
+            0% {transform: rotate(-45deg) translate3d(0, 0, 0);}
+            25% {transform: rotate(-45deg) translate3d(20px, -15px, 0);}
+            50% {transform: rotate(-45deg) translate3d(0, -30px, 0);}
+            75% {transform: rotate(-45deg) translate3d(-20px, -15px, 0);}
+            100% {transform: rotate(-45deg) translate3d(0, 0, 0);}
+        }
+        .nav-bar {background-color: #00c5b7;padding: 12px 20px;display: flex;align-items: center;justify-content: space-between;position: relative;top: -100px;animation: slideDown 0.3s ease-out forwards;}
+        @keyframes slideDown {to {top: 0;}}
+        .nav-items {display: flex;align-items: center;}
+        .nav-item {display: inline-block;color: white;text-decoration: none;padding: 8px 16px;font-size: 16px;margin: 0 2px;border-radius: 4px;transition: background-color 0.3s;}
+        .nav-item:hover {background-color: #34495e;}
+        .nav-item.logo {font-weight: bold;color: #cef7f4;}
+        .nav-item.now {color:#7ef7ee;}
+        .lang-switch {background-color: #00a89d;color: white;border: none;padding: 8px 16px;font-size: 16px;border-radius: 4px;cursor: pointer;transition: background-color 0.3s;text-decoration: none;}
+        .lang-switch:hover {background-color: #34495e;}
+        
+        .content-box {max-width: 1200px;margin: 40px auto;padding: 30px;background-color: rgba(255, 255, 255, 0.7);border-radius: 8px;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);transform: translateY(100px);opacity: 0;transition: transform 0.2s ease-out, opacity 0.2s ease-out;}
+        .content-box.visible {transform: translateY(0);opacity: 1;}
+        .content-box.soup {background-color:#928aff}
+        
+        .content {text-decoration: none}
+        .content.white {color:white}
+        .content.word {color:#00c5b7}
+        .content.middle {text-align: center;}
+        
+        .content.final {color:#00c5b7;button:20px}
+    </style>
+</head>
+<body>
+    <div class="bg-container" id="bgContainer"></div>
+    <div class="nav-bar">
+        <div class="nav-items">
+            <a href="../index.html" class="nav-item logo">Yushifishish</a>
+            <a href="./index.html" class="nav-item">主页</a>
+            <a class="nav-item now">游戏</a>
+            <a href="./fhoey.html" class="nav-item">Fhoey</a>
+            <a href="./extjs.html" class="nav-item">EXT.js</a>
+            <a href="./docs.html" class="nav-item">文档</a>
+            <a href="./forum.html" class="nav-item">论坛</a>
+        </div>
+        <a href="../en/game.html" class="lang-switch">英文</a>
+    </div>
+    <div class="content-box soup">
+        <h3 class="content white">讨论！</h3>
+        <p class="content white">更好用Scratch制作游戏？</p>
+    </div>
+    <div class="content middle">
+        <h3 class="content word">精选</h3>
+        <p class="content word">不定期更新</p>
+    </div>
+    <p class="content final">©2025(2018-2025) Yushifishish All Rights Reserved</p>
+    <script>
+    	if (history.scrollRestoration) {history.scrollRestoration = 'manual';}
+	window.scrollTo(0, 0);
+        const contentBoxes = document.querySelectorAll('.content-box');
+        const dotCount = 45; 
+        const lineCount = 38;
+        for (let i = 0; i < dotCount; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'bg-dot';
+            dot.style.left = `${Math.random() * 95}%`;
+            dot.style.top = `${Math.random() * 95}%`;
+            const size = 10 + Math.random() * 7;
+            dot.style.width = `${size}px`;
+            dot.style.height = `${size}px`;
+            dot.style.animationDelay = `${Math.random() * 5}s`;
+            bgContainer.appendChild(dot);
+        }
+
+        for (let i = 0; i < lineCount; i++) {
+            const line = document.createElement('div');
+            line.className = 'bg-line';
+            line.style.left = `${Math.random() * 90}%`;
+            line.style.top = `${Math.random() * 95}%`;
+            const width = 80 + Math.random() * 100;
+            line.style.width = `${width}px`;
+            line.style.animationDelay = `${Math.random() * 8}s`;
+            bgContainer.appendChild(line);
+        }
+        const contentBox = document.getElementById('contentBox');
+        function isInViewport(element) {const rect = element.getBoundingClientRect();return (rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&rect.bottom >= 0);}
+        function handleScroll() {contentBoxes.forEach(box => {if (isInViewport(box) && !box.classList.contains('visible')) {box.classList.add('visible');}});}
+        handleScroll();
+        window.addEventListener('scroll', handleScroll);
+    </script>
+</body>
+</html>
