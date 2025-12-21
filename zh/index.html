@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yushifishish - Technology Proves Everything .>w<.</title>
     <style>
         body {margin: 0;background-color: #bafff0;min-height: 100vh;overflow-x: hidden;position: relative;}
@@ -18,7 +20,7 @@
             0% {transform: rotate(-45deg) translate3d(0, 0, 0);}
             25% {transform: rotate(-45deg) translate3d(20px, -15px, 0);}
             50% {transform: rotate(-45deg) translate3d(0, -30px, 0);}
-            75% {transform: rotate(-45deg) translate3d(-20px, -15px, 0);} 
+            75% {transform: rotate(-45deg) translate3d(-20px, -15px, 0);}
             100% {transform: rotate(-45deg) translate3d(0, 0, 0);}
         }
         .nav-bar {background-color: #00c5b7;padding: 12px 20px;display: flex;align-items: center;justify-content: space-between;position: relative;top: -100px;animation: slideDown 0.3s ease-out forwards;}
@@ -33,6 +35,14 @@
         
         .content-box {max-width: 1200px;margin: 40px auto;padding: 30px;background-color: rgba(255, 255, 255, 0.7);border-radius: 8px;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);transform: translateY(100px);opacity: 0;transition: transform 0.2s ease-out, opacity 0.2s ease-out;}
         .content-box.visible {transform: translateY(0);opacity: 1;}
+        .content-box.welcome {background-color : #80eecc}
+        
+        .content {text-decoration: none}
+        .content.white {color:white}
+        .content.word {color:#00c5b7}
+        .content.middle {text-align: center;}
+        
+        .content.final {color:#00c5b7;button:20px}
     </style>
 </head>
 <body>
@@ -49,34 +59,25 @@
         </div>
         <a href="../en/index.html" class="lang-switch">英文</a>
     </div>
-    <p>网站测试中......</p>
-    <div class="content-box">
-        <p>1</p>
+    <div class="content-box welcome">
+        <div class="content middle">
+            <h3 class="content white">欢迎来到Yushifishish!</h3>
+            <p class="content white">在这里，发现乐趣，学会技能！（写不下去了）</p>
+        </div>
+    </div>
+    <div class="content middle">
+        <h3 class="content word">新闻</h3>
     </div>
     <div class="content-box">
-        <p>2</p>
+        <div class="content middle">
+            <h4 class="content word">新游戏《FMGB》即将发布！</h4>
+            <a class="content word" href="./games/fmgb.html">去看看</a>
+        </div>
     </div>
-    <div class="content-box">
-        <p>3</p>
-    </div>
-    <div class="content-box">
-        <p>4</p>
-    </div>
-    <div class="content-box">
-        <p>5</p>
-    </div>
-    <div class="content-box">
-        <p>6</p>
-    </div>
-    <div class="content-box">
-        <p>7</p>
-    </div>
-    <div class="content-box">
-        <p>8</p>
-    </div>
+    <p class="content final">©2025(2018-2025) Yushifishish All Rights Reserved</p>
     <script>
-        if (history.scrollRestoration) {history.scrollRestoration = 'manual';}
-	    window.scrollTo(0, 0);
+    	if (history.scrollRestoration) {history.scrollRestoration = 'manual';}
+	window.scrollTo(0, 0);
         const contentBoxes = document.querySelectorAll('.content-box');
         const dotCount = 45; 
         const lineCount = 38;
